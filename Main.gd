@@ -3,7 +3,7 @@ extends Node2D
 @onready var claw = $Claw
 @onready var pit_spawner = $PitSpawner
 @onready var hud = $HUD
-@onready var reset_button = $HUD/ResetButton
+@onready var reset_button = $HUD/VBoxContainer/ResetButton
 
 var config: GameConfig
 
