@@ -24,6 +24,10 @@ window/size/viewport_width=360
 window/size/viewport_height=520
 window/stretch/mode="canvas_items"
 
+[autoload]
+
+GameManager="*res://autoloads/game_manager.gd"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
