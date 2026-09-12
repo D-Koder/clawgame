@@ -1,5 +1,4 @@
 extends Node
-class_name GameManager
 
 signal score_changed(new_score: int)
 signal state_changed(new_state: String)
