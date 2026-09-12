@@ -60,10 +60,10 @@ func _input(event: InputEvent) -> void:
 		_on_mouse_move(event.position)
 
 func _on_mouse_down(screen_pos: Vector2) -> void:
-	claw_x = clamp(screen_pos.x - position.x, config.min_x, config.max_x)
+	claw_x = clamp(screen_pos.x - global_position.x, config.min_x, config.max_x)
 
 func _on_mouse_move(screen_pos: Vector2) -> void:
-	claw_x = clamp(screen_pos.x - position.x, config.min_x, config.max_x)
+	claw_x = clamp(screen_pos.x - global_position.x, config.min_x, config.max_x)
 
 func _on_mouse_up() -> void:
 	dropping.emit()

@@ -12,6 +12,7 @@ func _ready() -> void:
 		config = GameConfig.new()
 	if ball_types.is_empty():
 		_load_default_types()
+	_setup_boundaries()
 
 func _load_default_types() -> void:
 	ball_types.append(BallType.new(Color("F1EFE8"), 1, 0.65))
@@ -61,3 +62,33 @@ func clear_pit() -> void:
 	for ball in spawned_balls:
 		ball.queue_free()
 	spawned_balls.clear()
+
+func _setup_boundaries() -> void:
+	var wall_thickness = 20.0
+
+	var left_wall = StaticBody2D.new()
+	left_wall.position = Vector2(config.wall_left - wall_thickness / 2.0, 0)
+	var left_shape = RectangleShape2D.new()
+	left_shape.size = Vector2(wall_thickness, config.floor_y + 100)
+	var left_collision = CollisionShape2D.new()
+	left_collision.shape = left_shape
+	left_wall.add_child(left_collision)
+	add_child(left_wall)
+
+	var right_wall = StaticBody2D.new()
+	right_wall.position = Vector2(config.wall_right + wall_thickness / 2.0, 0)
+	var right_shape = RectangleShape2D.new()
+	right_shape.size = Vector2(wall_thickness, config.floor_y + 100)
+	var right_collision = CollisionShape2D.new()
+	right_collision.shape = right_shape
+	right_wall.add_child(right_collision)
+	add_child(right_wall)
+
+	var floor = StaticBody2D.new()
+	floor.position = Vector2(0, config.floor_y)
+	var floor_shape = RectangleShape2D.new()
+	floor_shape.size = Vector2(config.wall_right - config.wall_left + wall_thickness * 2, wall_thickness)
+	var floor_collision = CollisionShape2D.new()
+	floor_collision.shape = floor_shape
+	floor.add_child(floor_collision)
+	add_child(floor)
