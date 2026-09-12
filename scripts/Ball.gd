@@ -10,11 +10,11 @@ func _ready() -> void:
 		_setup_visuals()
 
 func _setup_visuals() -> void:
-	var sprite = $Sprite2D as Sprite2D
-	if sprite:
-		sprite.modulate = ball_type.color
-		sprite.scale = Vector2(config.ball_radius, config.ball_radius) / 8.0
-
+	var visual = $Visual as ColorRect
+	if visual:
+		visual.color = ball_type.color
+		visual.custom_minimum_size = Vector2(config.ball_radius * 2, config.ball_radius * 2)
+		
 func set_ball_type(type: BallType) -> void:
 	ball_type = type
 	_setup_visuals()

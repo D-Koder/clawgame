@@ -1,1 +1,6 @@
 res://Main.tscn
+res://autoloads/game_manager.gd
+res://scripts/PitSpawner.gd
+res://resources/GameConfig.gd
+res://scenes/Ball.tscn
+res://scripts/Ball.gd
